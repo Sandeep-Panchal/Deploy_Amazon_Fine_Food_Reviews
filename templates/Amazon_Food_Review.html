@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+
+<head>
+<title> This is the home page for whether a food review is positive or negative. </title>
+</head>
+
+<body style = 'background-color:lightgray'>
+<h1 style = 'background-color: orange; text-align:center'> Amazon Fine Food Review Predictor </h1>
+
+<p style="font-size:105%"> Due to growing customers, data is increasing vastly that it is hard to manually read reviews of the customers and categorize whether a review is a <mark><strong>Positive</strong></mark> or <mark><strong>Negative</strong></mark>.</p>
+<p style = "font-size:105%" ><strong>'Amazon Fine Food Review Predictor'</strong> page takes in reviews of the customers and predicts whether a given review is a <mark><strong>Positive</strong></mark> or <mark><strong>Negative</strong></mark>.</p>
+<p style = 'font-size:105%'>Prediction of the food review is based on the machine learning model that I have trained on the data set from the <a href = 'https://www.kaggle.com/snap/amazon-fine-food-reviews'>kaggle</a>. Performance - <mark>'accuracy'</mark> of this model on cross-validation data is <mark>~91%</mark>. Few predictions could be wrong too.</p>
+<p style = 'font-size:105%'><mark>Note: This is just a simple model done as a self-interest project. This is not for any business purpose. This is <strong>'strictly'</strong> for a <strong>'learning'</strong> purpose.</mark>
+
+<h3> Please enter food review in the below box.</h3>
+
+<form action = "{{url_for('Predict')}}" method = "post">
+
+<textarea style = "font-size:105%" name = 'message' rows = '10' cols = '60'> </textarea>
+<br><br>
+<input type = 'submit' class = 'btn-info' value = 'Predict'>
+
+<br>
+<hr>
+
+<h2 style = 'background-color:orange; text-align:center'> Prediction Result of the Review. </h2>
+
+	{% if prediction == 1 %}
+	<h2> Food review is <mark style = "background-color:green"> Positive </mark></h2>
+	{% elif prediction == 0 %}
+	<h2> Food review is <mark style = "background-color:red"> Negative </mark></h2>
+	{% endif %}
+
+</body>
+</html>
