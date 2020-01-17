@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <title> This is the home page for tweets disaster or not </title>
+</head>
+
+<body style = "background-color:lightgray">
+  
+  <h1 style = 'text-align:center; background-color:orange'> Tweets Disaster or Not Predictor </h1>
+  
+  <p style = 'font-size:105%'> This page predicts if a tweet/message is announcing disaster or not.</p>
+  <p style = 'font-size:105%'> Few examples like if the tweet reads <mark>'bomb blast did not happen'</mark> then it should predict <mark>'not a disaster'</mark> otherwise <mark>'disaster'</mark>. If the tweet reads <mark>'He killed many people'</mark> then it should predict <mark>'disaster'</mark> otherwise <mark>'not a disaster.'</p>
+  <p style = 'font-size:105%'> Prediction of the tweet is based on the machine learning model that I have trained on the data set from the <a href = 'https://www.kaggle.com/c/nlp-getting-started'>kaggle's competition</a>. Performance of this model is not great due to a lack of data and prediction could be wrong too. Performance - <mark>'f1-score'</mark> of this model on an unseen data is <mark>80.0163</mark> and this is not great.</p>
+  <p style = 'font-size:105%'><mark>Note: This is just a simple model done as a self-interest project. This is not for any business purpose. This is <strong>'strictly'</strong> for a <strong>'learning'</strong> purpose.</mark>
+  
+  <h3> Please enter your tweet in the below message box. </h3>
+  
+  <form action = "{{url_for('Predict')}}" method = "post">
+  <textarea name = 'message' rows = 10 cols = 60></textarea>
+  <br><br>
+  <input type = "submit" class = "btn-info"; value = "Predict" >
+  </form>
+  
+ <br>
+ <hr>
+ 
+  <h2 style = 'text-align:center; background-color:orange'> Prediction Result of the Tweet</h2>
+
+	{% if prediction == 1%}
+	<h2>Tweet anounces <mark style = "background-color:red"> Disaster</mark></h2>
+    
+	{% elif prediction == 0%}
+	<h2> Tweet anounces <mark style = "background-color:green"> Not a Disaster </mark></h2>
+	{% endif %}
+
+<br><br> 
+
+</body>
+    
+</html>
