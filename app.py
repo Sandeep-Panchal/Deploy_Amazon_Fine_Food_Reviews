@@ -3,8 +3,8 @@ import pickle
 from flask import Flask, render_template, request, url_for
 
 # importing pickle files
-cv = pickle.load(open('amz_transform_3.pkl', 'rb'))
-clf = pickle.load(open('nb_amz_3.pkl', 'rb'))
+cv = pickle.load(open('amz_transform_4.pkl', 'rb'))
+clf = pickle.load(open('nb_amz_4.pkl', 'rb'))
 
 # initiate flask
 app = Flask(__name__)
